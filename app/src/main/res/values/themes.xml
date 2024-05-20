@@ -52,6 +52,7 @@
     </style>
 
     <style name="SplashTheme" parent="AppTheme">
-        <item name="android:windowBackground">@drawable/splashscreen</item>
+        <item name="android:windowBackground">@color/md_theme_primary</item>
+        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="s">@drawable/ic_launcher_foreground</item>
     </style>
 </resources>
