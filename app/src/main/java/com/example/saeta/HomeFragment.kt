@@ -37,7 +37,6 @@ class HomeFragment : Fragment() {
 
         imageSlider.setImageList(slideModels, true);
 
-        // Inicializar Mobile Ads
         MobileAds.initialize(requireContext())
 
         adView = view.findViewById(R.id.adView)
