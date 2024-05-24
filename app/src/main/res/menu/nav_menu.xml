@@ -7,32 +7,20 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home"
-            android:title="Home"/>
+            android:title="Inicio"/>
         <item
             android:id="@+id/nav_routes"
             android:icon="@drawable/ic_route"
-            android:title="Routes"/>
-        <item
-            android:id="@+id/nav_favorite"
-            android:icon="@drawable/ic_heart"
-            android:title="Favourites"/>
+            android:title="Rutas"/>
+
         <item
             android:id="@+id/nav_tourist"
             android:icon="@drawable/ic_building_monument"
-            android:title="Tourist"/>
+            android:title="Lugares Turísticos"/>
         <item
             android:id="@+id/nav_about"
             android:icon="@drawable/ic_info_circle"
-            android:title="About"/>
+            android:title="Acerca De"/>
     </group>
 
-    <item
-        android:title="">
-        <menu>
-            <item
-                android:id="@+id/logout"
-                android:icon="@drawable/ic_logout"
-                android:title="Logout"/>
-        </menu>
-    </item>
 </menu>
