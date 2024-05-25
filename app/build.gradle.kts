@@ -44,4 +44,5 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation ("com.google.android.gms:play-services-ads:23.0.0")
     implementation ("com.github.denzcoskun:ImageSlideshow:0.1.2")
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
 }
