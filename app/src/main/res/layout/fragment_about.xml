@@ -20,6 +20,12 @@
             android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="match_parent"
+                android:layout_height="149dp"
+                android:src="@drawable/background_saeta" />
+
+            <ImageView
                 android:id="@+id/imageView4"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
@@ -40,7 +46,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="SAETA Villahermosa"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 android:gravity="center"/>
 
             <TextView
@@ -54,6 +60,67 @@
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Conéctate con nosotros"
+                android:textSize="16sp"
+                android:padding="20dp"/>
+
+            <Button
+                style="@style/Widget.Material3.Button.TextButton"
+                android:id="@+id/textButton_facebook"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Me gusta en facebook"
+                android:padding="20dp"
+                android:gravity="left"
+                app:icon="@drawable/ic_facebook"
+                />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                style="@style/Widget.Material3.Button.TextButton"
+                android:id="@+id/textButton_gmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Contacta con nosotros"
+                android:padding="20dp"
+                android:gravity="left"
+                app:icon="@drawable/ic_mail"
+                />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                style="@style/Widget.Material3.Button.TextButton"
+                android:id="@+id/textButton_webpage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Visita nuestra pagina"
+                android:padding="20dp"
+                android:gravity="left"
+                app:icon="@drawable/ic_blogger"
+                />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Version 0.0.1"
+                android:padding="20dp"/>
+
 
         </LinearLayout>
     </ScrollView>
