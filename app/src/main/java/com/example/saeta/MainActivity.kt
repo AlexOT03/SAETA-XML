@@ -1,5 +1,6 @@
 package com.example.saeta
 
+import TuristFragment
 import android.os.Bundle
 import android.view.Gravity
 import android.view.MenuItem
@@ -43,6 +44,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         when (item.itemId) {
             R.id.nav_home -> replaceFragment(HomeFragment())
             R.id.nav_routes -> replaceFragment(RoutesFragment())
+            R.id.nav_tourist -> replaceFragment(TuristFragment())
             R.id.nav_about -> replaceFragment(AboutFragment())
         }
         drawerLayout.closeDrawer(GravityCompat.START)
