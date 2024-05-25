@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_home -> replaceFragment(HomeFragment())
             R.id.nav_routes -> replaceFragment(RoutesFragment())
             R.id.nav_tourist -> replaceFragment(TuristFragment())
-
+            R.id.nav_about -> replaceFragment(AboutFragment())
         }
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
