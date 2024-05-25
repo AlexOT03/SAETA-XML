@@ -49,9 +49,12 @@ class DetailedActivity : AppCompatActivity() {
 
         viewPager2.adapter = adapter
 
+        viewPager2.isUserInputEnabled = false
+
+
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(p0: TabLayout.Tab?) {
-                if (p0 != null){
+                p0?.let {
                     viewPager2.currentItem = p0.position
                 }
             }

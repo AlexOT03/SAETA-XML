@@ -5,14 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".RutaVenidaFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Second Fragment"
-        android:gravity="center"
-        android:textColor="#000"
-        android:textStyle="bold"
-        android:textSize="22sp"/>
+        android:layout_height="match_parent" />
 
 </FrameLayout>
