@@ -1,72 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f5fafd"
     tools:context=".HomeFragment">
 
     <com.denzcoskun.imageslider.ImageSlider
         android:id="@+id/slider"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="200dp"
         android:layout_margin="20dp"
         app:auto_cycle="true"
         app:corner_radius="20"
         app:delay="0"
         app:period="3000" />
 
-
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
-        android:layout_width="wrap_content"
-        android:layout_height="117dp"
-        android:layout_above="@+id/recyclerViewContainer"
-        android:layout_below="@+id/slider"
+        android:layout_width="370dp"
+        android:layout_height="57dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="5dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="441dp"
         android:background="#D68686"
         app:adSize="SMART_BANNER"
         app:adUnitId="ca-app-pub-3940256099942544/6300978111" />
-
-    <LinearLayout
-        android:id="@+id/recyclerViewContainer"
-        android:layout_width="match_parent"
-        android:layout_height="470dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="-24dp"
-        android:background="@drawable/rounded_corners"
-        android:clipToPadding="false"
-        android:elevation="4dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/recyclerViewTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:drawableStart="@drawable/ic_route"
-            android:drawablePadding="8dp"
-            android:fontFamily="sans-serif"
-            android:padding="10dp"
-            android:text="Rutas Cercanas"
-            android:textColor="@android:color/black"
-            android:textSize="22sp" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="380dp"
-            android:background="#FFFFFF"
-            android:padding="3dp" />
-
-    </LinearLayout>
-
 </RelativeLayout>
