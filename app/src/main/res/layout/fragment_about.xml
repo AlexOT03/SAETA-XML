@@ -101,7 +101,7 @@
 
             <Button
                 style="@style/Widget.Material3.Button.TextButton"
-                android:id="@+id/textButton_webpage"
+                android:id="@+id/textButton_blog"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Visita nuestra pagina"
