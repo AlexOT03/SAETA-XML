@@ -5,4 +5,5 @@
     <string name="nav_open">Open</string>
     <string name="nav_close">Close</string>
     <string name="buscar">Buscar...</string>
+    <string name="google_map_api_key">AIzaSyD0ObOtj6g22fUuyej9G8Kp6cvHe9uO0TE</string>
 </resources>
