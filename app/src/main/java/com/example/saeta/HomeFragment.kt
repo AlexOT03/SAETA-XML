@@ -5,8 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.denzcoskun.imageslider.ImageSlider
 import com.google.android.gms.ads.AdView
 import com.denzcoskun.imageslider.models.SlideModel
@@ -22,7 +20,6 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
@@ -56,12 +53,6 @@ class HomeFragment : Fragment() {
                 super.onAdLoaded()
             }
         }
-
-        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
-        val adapter = CustomAdapter()
-
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.adapter = adapter
 
         return view
     }
