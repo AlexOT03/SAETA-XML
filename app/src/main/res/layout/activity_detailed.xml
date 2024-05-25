@@ -37,13 +37,7 @@
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            app:tabGravity="fill"
-            app:tabIndicator="@drawable/tab_indicator"
-            app:tabIndicatorAnimationMode="elastic"
-            app:tabIndicatorGravity="stretch"
-            app:tabMode="fixed"
-            app:tabSelectedTextColor="#FFFFFF" />
+            android:layout_height="wrap_content"/>
 
         <androidx.viewpager2.widget.ViewPager2
             android:layout_width="match_parent"

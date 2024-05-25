@@ -44,8 +44,8 @@ class DetailedActivity : AppCompatActivity() {
         viewPager2 = findViewById(R.id.viewPager2)
         adapter = FragmentPageAdapter(supportFragmentManager, lifecycle)
 
-        tabLayout.addTab(tabLayout.newTab().setText("                 Ruta de Ida                  "))
-        tabLayout.addTab(tabLayout.newTab().setText("                 Ruta de Vuelta                  "))
+        tabLayout.addTab(tabLayout.newTab().setText("Ruta de Ida").setIcon(R.drawable.ic_home))
+        tabLayout.addTab(tabLayout.newTab().setText("Ruta de Vuelta").setIcon(R.drawable.ic_home))
 
         viewPager2.adapter = adapter
 
