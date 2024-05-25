@@ -9,7 +9,7 @@
     <com.denzcoskun.imageslider.ImageSlider
         android:id="@+id/slider"
         android:layout_width="wrap_content"
-        android:layout_height="172dp"
+        android:layout_height="160dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
@@ -24,16 +24,50 @@
         android:id="@+id/adView"
         android:layout_width="370dp"
         android:layout_height="57dp"
+        android:layout_above="@+id/recyclerViewContainer"
         android:layout_below="@+id/slider"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="470dp"
+        android:layout_marginBottom="20dp"
         android:background="#D68686"
         app:adSize="SMART_BANNER"
         app:adUnitId="ca-app-pub-3940256099942544/6300978111" />
 
+    <LinearLayout
+        android:id="@+id/recyclerViewContainer"
+        android:layout_width="match_parent"
+        android:layout_height="480dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="-16dp"
+        android:background="@drawable/rounded_corners"
+        android:clipToPadding="false"
+        android:elevation="4dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/recyclerViewTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:drawableStart="@drawable/ic_route"
+            android:drawablePadding="8dp"
+            android:fontFamily="sans-serif"
+            android:padding="10dp"
+            android:text="Rutas Cercanas"
+            android:textColor="@android:color/black"
+            android:textSize="22sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="405dp"
+            android:background="#FFFFFF"
+            android:padding="4dp" />
+
+    </LinearLayout>
 </RelativeLayout>
