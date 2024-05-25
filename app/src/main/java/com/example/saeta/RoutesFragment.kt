@@ -73,7 +73,6 @@ class RoutesFragment : Fragment() {
         }
     }
 
-
     private fun addDataToList(){
         mList.add(LanguageData("Ruta 01", R.drawable.foto))
         mList.add(LanguageData("Ruta 02", R.drawable.foto2))
