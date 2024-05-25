@@ -17,26 +17,32 @@ card_view:cardUseCompatPadding="true">
 
     <ImageView
         android:id="@+id/imageplace"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:layout_marginRight="5dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="10dp"
         card_view:layout_constraintBottom_toBottomOf="parent"
+        card_view:layout_constraintEnd_toStartOf="@+id/linearLayout"
         card_view:layout_constraintStart_toStartOf="parent"
         card_view:layout_constraintTop_toTopOf="parent"
         card_view:srcCompat="@drawable/ic_home" />
 
     <LinearLayout
-        android:layout_width="300dp"
+        android:id="@+id/linearLayout"
+        android:layout_width="292dp"
         android:layout_height="75dp"
         android:layout_gravity="end|center"
+        android:layout_marginEnd="8dp"
         android:orientation="vertical"
         card_view:layout_constraintBottom_toBottomOf="parent"
         card_view:layout_constraintEnd_toEndOf="parent"
-        card_view:layout_constraintTop_toTopOf="parent">
+        card_view:layout_constraintStart_toEndOf="@+id/imageplace"
+        card_view:layout_constraintTop_toTopOf="parent"
+        card_view:layout_constraintVertical_bias="0.0">
 
         <TextView
             android:id="@+id/titleplace"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:text="Titulo del lugar"
             android:textSize="20sp"
@@ -44,7 +50,7 @@ card_view:cardUseCompatPadding="true">
 
         <TextView
             android:id="@+id/descriptionplace"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="Descripción del lugar..."
