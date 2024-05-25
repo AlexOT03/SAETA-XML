@@ -8,8 +8,13 @@ import android.view.ViewGroup
 import com.denzcoskun.imageslider.ImageSlider
 import com.denzcoskun.imageslider.models.SlideModel
 import com.denzcoskun.imageslider.constants.ScaleTypes
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.AdListener
+import com.google.android.gms.ads.AdRequest
 
 class HomeFragment : Fragment() {
+    private lateinit var adView: AdView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,6 +35,23 @@ class HomeFragment : Fragment() {
         slideModels.add(SlideModel ("https://fastly.picsum.photos/id/95/500/500.jpg?hmac=0aldBQ7cQN5D_qyamlSP5j51o-Og4gRxSq4AYvnKk2U",ScaleTypes.CENTER_CROP));
 
         imageSlider.setImageList(slideModels);
+
+        MobileAds.initialize(requireContext())
+
+        adView = view.findViewById(R.id.adView)
+
+        val adRequest = AdRequest.Builder().build()
+
+        adView.loadAd(adRequest)
+
+        adView.visibility = View.GONE
+
+        adView.adListener = object : AdListener() {
+            override fun onAdLoaded() {
+                adView.visibility = View.VISIBLE
+                super.onAdLoaded()
+            }
+        }
 
         return view
     }
