@@ -6,10 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.denzcoskun.imageslider.ImageSlider
+import com.google.android.gms.ads.AdView
 import com.denzcoskun.imageslider.models.SlideModel
+import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.AdListener
+import com.google.android.gms.ads.AdRequest
 
 
 class HomeFragment : Fragment() {
+    private lateinit var adView: AdView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,6 +36,23 @@ class HomeFragment : Fragment() {
         slideModels.add(SlideModel ("https://fastly.picsum.photos/id/95/500/500.jpg?hmac=0aldBQ7cQN5D_qyamlSP5j51o-Og4gRxSq4AYvnKk2U"));
 
         imageSlider.setImageList(slideModels, true);
+
+        MobileAds.initialize(requireContext())
+
+        adView = view.findViewById(R.id.adView)
+
+        val adRequest = AdRequest.Builder().build()
+
+        adView.loadAd(adRequest)
+
+        adView.visibility = View.GONE
+
+        adView.adListener = object : AdListener() {
+            override fun onAdLoaded() {
+                adView.visibility = View.VISIBLE
+                super.onAdLoaded()
+            }
+        }
 
         return view
     }
