@@ -4,7 +4,4 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="nav_open">Open</string>
     <string name="nav_close">Close</string>
-
-    <string name="admob_app_id">ca-app-pub-7946243355695978~5675386867</string>
-    <string name="admob_banner_ad">ca-app-pub-7946243355695978/2702373626</string>
 </resources>
