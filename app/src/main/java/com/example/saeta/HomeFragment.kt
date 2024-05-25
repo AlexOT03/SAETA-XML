@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.denzcoskun.imageslider.ImageSlider
 import com.denzcoskun.imageslider.models.SlideModel
 import com.denzcoskun.imageslider.constants.ScaleTypes
@@ -52,6 +54,12 @@ class HomeFragment : Fragment() {
                 super.onAdLoaded()
             }
         }
+
+        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
+        val adapter = CustomAdapter()
+
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.adapter = adapter
 
         return view
     }
