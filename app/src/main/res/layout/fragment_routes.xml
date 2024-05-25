@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".RoutesFragment">
 
-
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/materialCardView"
         android:layout_width="0dp"
