@@ -21,6 +21,7 @@
         android:layout_marginBottom="8dp"
         android:textSize="20sp"
         android:drawablePadding="10dp"
+        app:queryBackground="@android:color/transparent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
