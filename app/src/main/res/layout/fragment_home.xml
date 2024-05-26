@@ -41,7 +41,6 @@
         android:layout_width="match_parent"
         android:layout_height="400dp"
         android:layout_alignParentBottom="true"
-
         android:background="@drawable/rounded_corners"
         android:clipToPadding="false"
         android:elevation="4dp"
