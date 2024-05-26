@@ -74,13 +74,13 @@ class RoutesFragment : Fragment() {
     }
 
     private fun addDataToList(){
-        mList.add(LanguageData("Ruta 01", R.drawable.foto))
-        mList.add(LanguageData("Ruta 02", R.drawable.foto2))
-        mList.add(LanguageData("Ruta 03", R.drawable.foto))
-        mList.add(LanguageData("Ruta 04", R.drawable.foto))
-        mList.add(LanguageData("Ruta 05", R.drawable.foto2))
-        mList.add(LanguageData("Ruta 06", R.drawable.foto))
-        mList.add(LanguageData("Ruta 07", R.drawable.foto))
-        mList.add(LanguageData("Ruta 08", R.drawable.foto))
+        mList.add(LanguageData("Ruta 01", R.drawable.ruta))
+        mList.add(LanguageData("Ruta 02", R.drawable.ruta))
+        mList.add(LanguageData("Ruta 03", R.drawable.ruta))
+        mList.add(LanguageData("Ruta 04", R.drawable.ruta))
+        mList.add(LanguageData("Ruta 05", R.drawable.ruta))
+        mList.add(LanguageData("Ruta 06", R.drawable.ruta))
+        mList.add(LanguageData("Ruta 07", R.drawable.ruta))
+        mList.add(LanguageData("Ruta 08", R.drawable.ruta))
     }
 }
