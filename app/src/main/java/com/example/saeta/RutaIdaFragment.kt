@@ -1,6 +1,5 @@
 package com.example.saeta
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,20 +9,10 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-@SuppressLint("ValidFragment")
 class RutaIdaFragment : Fragment(), OnMapReadyCallback {
 
-    private var mGoogleMap: GoogleMap? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-        }
-    }
-
+    private lateinit var mGoogleMap: GoogleMap
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -38,18 +27,7 @@ class RutaIdaFragment : Fragment(), OnMapReadyCallback {
         return view
     }
 
-    companion object {
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            RutaIdaFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
-
     override fun onMapReady(googleMap: GoogleMap) {
-        mGoogleMap = googleMap
+        this.mGoogleMap = googleMap
     }
 }
