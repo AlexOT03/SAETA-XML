@@ -32,6 +32,7 @@ class RutaIdaFragment : Fragment(), OnMapReadyCallback {
             .findFragmentById(R.id.mapFragment) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
+
         return view
     }
 

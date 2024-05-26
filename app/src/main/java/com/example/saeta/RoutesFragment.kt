@@ -9,7 +9,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import androidx.appcompat.widget.SearchView
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.saeta.API.Stop
+import com.example.saeta.API.ViewModels.RouteViewModel
+import com.example.saeta.API.ViewModels.StopsViewModel
 import java.util.*
 
 class RoutesFragment : Fragment() {
@@ -17,6 +21,8 @@ class RoutesFragment : Fragment() {
     private lateinit var searchView: SearchView
     private var mList = ArrayList<LanguageData>()
     private lateinit var adapter: LanguageAdapter
+    private val routeViewModel: RouteViewModel by viewModels()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,13 +36,15 @@ class RoutesFragment : Fragment() {
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        addDataToList()
-        adapter = LanguageAdapter(mList)
+        adapter = LanguageAdapter()
         recyclerView.adapter = adapter
 
-        adapter.onItemClick = {
+        observeStops()
+
+
+        adapter.onItemClick = {route->
             val intent = Intent(requireContext() ,DetailedActivity::class.java)
-            intent.putExtra("ruta", it)
+            intent.putExtra("ruta", route.id.toString())
             startActivity(intent)
         }
 
@@ -58,19 +66,25 @@ class RoutesFragment : Fragment() {
     private fun filterList(query: String?) {
 
         if (query != null) {
-            val filteredList = ArrayList<LanguageData>()
-            for (i in mList) {
-                if (i.title.lowercase(Locale.ROOT).contains(query)) {
-                    filteredList.add(i)
-                }
-            }
-
+            val filteredList = adapter.getStops().filter { it.long_name.lowercase(Locale.ROOT).contains(query.lowercase(Locale.ROOT)) }
             if (filteredList.isEmpty()) {
                 Toast.makeText(requireContext(), "No Data found", Toast.LENGTH_SHORT).show()
             } else {
-                adapter.setFilteredList(filteredList)
+                adapter.setStops(filteredList)
             }
         }
+    }
+
+    private fun observeStops() {
+        routeViewModel.routes.observe(viewLifecycleOwner) { routes ->
+            adapter.setStops(routes)
+        }
+        //logica para mostrar el error en caso
+        //de que falle la conexion
+        //routeViewModel.error.observe(viewLifecycleOwner){error->
+        //de preferencia un TextView para mostrarlo
+        // Toast.makeText(requireContext(), error, Toast.LENGTH_SHORT).show()
+        //}
     }
 
     private fun addDataToList(){

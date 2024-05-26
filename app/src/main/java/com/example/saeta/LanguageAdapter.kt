@@ -6,20 +6,26 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.saeta.API.Route
+import com.example.saeta.API.Stop
 
-class LanguageAdapter(var mList: List<LanguageData>) :
-    RecyclerView.Adapter<LanguageAdapter.LanguageViewHolder>() {
-
-    var onItemClick : ((LanguageData) -> Unit)? = null
+class LanguageAdapter: RecyclerView.Adapter<LanguageAdapter.LanguageViewHolder>(){
+    private var routes: List<Route> = emptyList()
+    var onItemClick : ((Route) -> Unit)? = null
     inner class LanguageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val logo : ImageView = itemView.findViewById(R.id.logoIv)
         val titleTv : TextView = itemView.findViewById(R.id.titleTv)
     }
 
-    fun setFilteredList(mList: List<LanguageData>){
-        this.mList = mList
+    fun setFilteredList(stops: List<Route>){
+        this.routes = stops
         notifyDataSetChanged()
     }
+    fun setStops(stops: List<Route>) {
+        this.routes = stops
+        notifyDataSetChanged()
+    }
+    fun getStops(): List<Route> = routes
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LanguageViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.each_item , parent , false)
@@ -27,16 +33,17 @@ class LanguageAdapter(var mList: List<LanguageData>) :
     }
 
     override fun onBindViewHolder(holder: LanguageViewHolder, position: Int) {
-        holder.logo.setImageResource(mList[position].logo)
-        holder.titleTv.text = mList[position].title
+        val route = routes[position]
+        holder.logo.setImageResource(R.drawable.ruta)
+        holder.titleTv.text = route.long_name
 
         holder.itemView.setOnClickListener {
-            onItemClick?.invoke(mList[position])
+            onItemClick?.invoke(route)
         }
     }
 
     override fun getItemCount(): Int {
-        return mList.size
+        return routes.size
     }
 
 }
