@@ -41,8 +41,8 @@ class TuristFragment : Fragment() {
     }
     // Función que almacena datos estáticos
     private fun list() {
-        listplaces.add(Places_routes("Pomoca", R.drawable.ic_route, "Esta en villahermosa", 1202.02, 1020.20))
-        listplaces.add(Places_routes("Acapulco", R.drawable.ic_home, "Queda en merida", 1202.02, 1020.20))
+        listplaces.add(Places_routes("Pomoca", R.drawable.foto, "Esta en villahermosa", 1202.02, 1020.20))
+        listplaces.add(Places_routes("Acapulco", R.drawable.foto2, "Queda en merida", 1202.02, 1020.20))
         listplaces.add(Places_routes("Choapas", R.drawable.ic_heart, "Queda por chiapas", 1202.02, 1020.20))
         listplaces.add(Places_routes("Merida", R.drawable.baseline_search_24, "Esta por el tren maya", 1202.02, 1020.20))
         listplaces.add(Places_routes("Pomoca", R.drawable.ic_route, "Esta en villahermosa", 1202.02, 1020.20))
