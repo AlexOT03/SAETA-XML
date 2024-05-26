@@ -1,5 +1,9 @@
 package com.example.saeta.API
 
+import android.os.Parcel
+import android.os.Parcelable
+
+
 data class Route(
         val id: Int,
         val agency: String,
@@ -15,7 +19,54 @@ data class Route(
         val route_type: String,
         val Going: List<Trip>,
         val Return: List<Trip>
-)
+):Parcelable {
+    constructor(parcel: Parcel) : this(
+            parcel.readInt(),
+            parcel.readString().toString(),
+            parcel.readString().toString(),
+            parcel.readInt(),
+            parcel.readString().toString(),
+            parcel.readString().toString(),
+            parcel.readString().toString(),
+            parcel.readByte() != 0.toByte(),
+            parcel.readString().toString(),
+            parcel.readInt(),
+            parcel.readInt(),
+            parcel.readString().toString(),
+            TODO("Going"),
+            TODO("Return")) {
+    }
+
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeInt(id)
+        parcel.writeString(agency)
+        parcel.writeString(agency_logo)
+        parcel.writeInt(short_name)
+        parcel.writeString(long_name)
+        parcel.writeString(vehicle_type)
+        parcel.writeString(vehicle_img)
+        parcel.writeByte(if (status) 1 else 0)
+        parcel.writeString(color)
+        parcel.writeInt(terminal_1)
+        parcel.writeInt(terminal_2)
+        parcel.writeString(route_type)
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<Route> {
+        override fun createFromParcel(parcel: Parcel): Route {
+            return Route(parcel)
+        }
+
+        override fun newArray(size: Int): Array<Route?> {
+            return arrayOfNulls(size)
+        }
+    }
+}
+
 data class Trip(
         val id: Int,
         val address: String,

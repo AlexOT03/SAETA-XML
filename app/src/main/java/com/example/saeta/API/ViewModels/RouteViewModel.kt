@@ -25,17 +25,11 @@ class RouteViewModel : ViewModel() {
     private val _returnRoute = MutableLiveData<Trip>()
     val returnRoute: LiveData<Trip> get() = _returnRoute
 
-    private val _goings = MutableLiveData<List<Stop>>()
-    val goings: LiveData<List<Stop>> get() = _goings
-    private val _returns = MutableLiveData<List<Stop>>()
-    val returns: LiveData<List<Stop>> get() = _returns
-
     private val _error = MutableLiveData<String?>()
     val error: LiveData<String?> get() = _error
 
     init {
         fetchRoutes()
-        fetchStops()
     }
 
     private fun fetchRoutes() {
@@ -61,30 +55,5 @@ class RouteViewModel : ViewModel() {
             }
         }
     }
-    private fun fetchStops() {
-        viewModelScope.launch(Dispatchers.IO) {
-            try {
-                val response = RouteApi.apiService.getStops().execute()
-                if (response.isSuccessful) {
-                    response.body()?.let {stopsResponse ->
-                        val goings = stopsResponse.flatMap { it.goings }
-                        val returns = stopsResponse.flatMap { it.returns }
-                        _goings.postValue(goings)
-                        _returns.postValue(returns)
-                        _error.postValue(null)
-                    } ?: run {
-                        _error.postValue("No data available")
-                    }
-                } else {
-                    _error.postValue("Failed to fetch data")
-                }
-            } catch (e: HttpException) {
-                _error.postValue("HTTP error: ${e.message}")
-            } catch (e: IOException) {
-                _error.postValue("Network error: ${e.message}")
-            } catch (e: Exception) {
-                _error.postValue("Unexpected error: ${e.message}")
-            }
-        }
-    }
+
 }
