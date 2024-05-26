@@ -12,6 +12,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.viewpager2.widget.ViewPager2
+import com.example.saeta.API.Route
 import com.google.android.material.tabs.TabLayout
 
 class DetailedActivity : AppCompatActivity() {
@@ -51,6 +52,8 @@ class DetailedActivity : AppCompatActivity() {
 
         viewPager2.isUserInputEnabled = false
 
+        val route = intent.getStringExtra("ruta")
+        Toast.makeText(this, route.toString(), Toast.LENGTH_SHORT).show()
 
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(p0: TabLayout.Tab?) {
