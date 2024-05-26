@@ -51,4 +51,5 @@ dependencies {
     implementation("com.airbnb.android:lottie:6.4.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.2.0")
+    implementation("androidx.fragment:fragment-ktx:1.4.1")
 }

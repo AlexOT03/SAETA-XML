@@ -5,11 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.denzcoskun.imageslider.ImageSlider
 import com.denzcoskun.imageslider.models.SlideModel
 import com.denzcoskun.imageslider.constants.ScaleTypes
+import com.example.saeta.API.ViewModels.RouteViewModel
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.AdListener
@@ -17,7 +21,8 @@ import com.google.android.gms.ads.AdRequest
 
 class HomeFragment : Fragment() {
     private lateinit var adView: AdView
-
+    private val routeViewModel: RouteViewModel by viewModels()
+    private lateinit var adapter : CustomAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -54,13 +59,32 @@ class HomeFragment : Fragment() {
                 super.onAdLoaded()
             }
         }
-
+        
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
-        val adapter = CustomAdapter()
+
+        adapter = CustomAdapter()
 
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = adapter
 
+        observeViewModel()
+
         return view
+    }
+
+    private fun observeViewModel() {
+        routeViewModel.routes.observe(viewLifecycleOwner, Observer { routes ->
+            routes?.let {
+                adapter.updateRoutes(it)
+            }
+        })
+
+        routeViewModel.error.observe(viewLifecycleOwner, Observer{ error->
+            error?.let{
+                //logica para mostrar el error en caso
+                //de que falle la conexion
+                Toast.makeText(context, error, Toast.LENGTH_LONG).show()
+            }
+        })
     }
 }

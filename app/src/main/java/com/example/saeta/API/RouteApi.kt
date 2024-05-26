@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RouteApi {
     //Cambiar por la IP de tu equipo
-    private const val BASE_URL = "http://192.168.100.130:3000/Api/" // Replace whit yours IP address
+    private const val BASE_URL = "http://10.0.0.13:3000/Api/" // Replace whit yours IP address
     val apiService: ApiService by lazy {
         try {
             Retrofit.Builder()
