@@ -22,8 +22,8 @@
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
-        android:layout_width="370dp"
-        android:layout_height="57dp"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
         android:layout_above="@+id/recyclerViewContainer"
         android:layout_below="@+id/slider"
         android:layout_alignParentStart="true"
@@ -39,9 +39,9 @@
     <LinearLayout
         android:id="@+id/recyclerViewContainer"
         android:layout_width="match_parent"
-        android:layout_height="480dp"
+        android:layout_height="400dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="-16dp"
+
         android:background="@drawable/rounded_corners"
         android:clipToPadding="false"
         android:elevation="4dp"
@@ -52,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:drawableStart="@drawable/ic_route"
             android:drawablePadding="8dp"
@@ -65,7 +65,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="405dp"
+            android:layout_height="match_parent"
             android:background="#FFFFFF"
             android:padding="4dp" />
 
