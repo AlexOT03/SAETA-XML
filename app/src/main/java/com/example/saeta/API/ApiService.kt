@@ -13,6 +13,8 @@ interface ApiService {
     fun getGoingRoute(@Path("routeID") routeID: Int, @Path("goingID") goingID: Int): Call<Trip>
     @GET("Routes/Return/{routeID}/{returnID}")
     fun getReturnRoute(@Path("routeID") routeID: Int, @Path("returnID") returnID: Int): Call<Trip>
-    @GET("Stops")
-    fun getStops(): Call<List<StopsData>>
+    @GET("Routes/Goings/{routeID}")
+    fun getGoings( @Path("routeID") routeID: Int): Call<List<Stop>>
+    @GET("Routes/Returns/{routeID}")
+    fun getReturns(@Path("routeID") routeID: Int): Call<List<Stop>>
 }
