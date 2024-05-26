@@ -33,6 +33,7 @@ data class Stop(
         val altitude: Number,
         val latitude: Number
 )
-data class Data(
-        val routes: List<Route>
+data class StopsData(
+        val goings:List<Stop>,
+        val returns:List<Stop>
 )

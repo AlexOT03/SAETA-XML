@@ -7,8 +7,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.view.menu.MenuView.ItemView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.saeta.API.Route
+import com.example.saeta.API.Stop
 
-class CustomAdapter: RecyclerView.Adapter<CustomAdapter.ViewHolder>(){
+class CustomAdapter(private var routes:List<Route> = emptyList()): RecyclerView.Adapter<CustomAdapter.ViewHolder>(){
 
     val titles = arrayOf("Ruta01",
         "Ruta02",
@@ -29,13 +31,19 @@ class CustomAdapter: RecyclerView.Adapter<CustomAdapter.ViewHolder>(){
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
-        viewHolder.itemTitle.text = titles[i]
-        viewHolder.itemDetail.text = details[i]
-        viewHolder.itemImage.setImageResource(images[i])
+            val route = routes[i]
+            viewHolder.itemTitle.text = route.long_name
+            viewHolder.itemDetail.text = route.route_type
+            viewHolder.itemImage.setImageResource(images[i])
+
     }
 
     override fun getItemCount(): Int {
-        return titles.size
+        return routes.size
+    }
+    fun updateRoutes(newRoutes: List<Route>) {
+        routes = newRoutes
+        notifyDataSetChanged()
     }
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
