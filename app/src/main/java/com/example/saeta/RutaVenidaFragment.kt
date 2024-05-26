@@ -1,27 +1,25 @@
 package com.example.saeta
 
-import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.LatLngBounds
+import com.google.android.gms.maps.model.Marker
+import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.PolylineOptions
 
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-@SuppressLint("ValidFragment")
 class RutaVenidaFragment : Fragment(), OnMapReadyCallback {
 
-    private var mGoogleMap: GoogleMap? = null
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-        }
-    }
+    private lateinit var mGoogleMap: GoogleMap
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,18 +35,68 @@ class RutaVenidaFragment : Fragment(), OnMapReadyCallback {
         return view
     }
 
-    companion object {
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            RutaVenidaFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onMapReady(googleMap: GoogleMap) {
+        this.mGoogleMap = googleMap
+
+        mGoogleMap?.addMarker(MarkerOptions()
+            .position(LatLng(12.321,13.432))
+            .title("Parada 1.5")
+            .snippet("Description for Marker 1")
+        )
+
+        mGoogleMap?.addMarker(MarkerOptions()
+            .position(LatLng(12.987, 14.345))
+            .title("parada 3.5")
+            .snippet("Description for Draggable Marker")
+        )
+
+        mGoogleMap?.addMarker(MarkerOptions()
+            .position(LatLng(12.654, 13.987))
+            .title("parada 2.5")
+            .snippet("Description for Custom Marker")
+            .zIndex(1f)
+        )
+
+        val routePoints = listOf(
+            LatLng(12.321, 13.432),
+            LatLng(12.654, 13.987),
+            LatLng(12.987, 14.345)
+        )
+
+        drawRoute(routePoints)
+        zoomToRoute(routePoints)
+
+        mGoogleMap.setOnMarkerClickListener { marker ->
+            showMarkerInfoBottomSheet(marker)
+            true
+        }
     }
 
-    override fun onMapReady(googleMap: GoogleMap) {
-        mGoogleMap = googleMap
+    private fun drawRoute(routePoints: List<LatLng>) {
+        val polylineOptions = PolylineOptions()
+            .addAll(routePoints)
+            .color(Color.BLUE) // Elige el color que prefieras
+            .width(10f) // Ajusta el ancho de la línea
+
+        mGoogleMap.addPolyline(polylineOptions)
+    }
+
+    private fun zoomToRoute(routePoints: List<LatLng>) {
+        val builder = LatLngBounds.Builder()
+        for (point in routePoints) {
+            builder.include(point)
+        }
+        val bounds = builder.build()
+        val padding = 100 // Espacio adicional alrededor de los bordes de la ruta
+        val cu = CameraUpdateFactory.newLatLngBounds(bounds, padding)
+        mGoogleMap.moveCamera(cu)
+    }
+
+    private fun showMarkerInfoBottomSheet(marker: Marker) {
+        val bottomSheet = when (marker.zIndex.toInt()) {
+            1 -> BottomSheetFragment.newInstance(marker.title ?: "", marker.snippet ?: "", "Información extra para Parada 2Información extra para Parada 2Información extra para Parada 2Información extra para Parada 2Información extra para Parada 2Información extra para Parada 2Información extra para Parada 2Información extra para Parada 2Información extra para Parada 2", R.drawable.foto2)
+            else -> BottomSheetFragment.newInstance(marker.title ?: "", marker.snippet ?: "", "Información extra para otrosInformación extra para otrosInformación extra para otrosInformación extra para otrosInformación extra para otrosInformación extra para otrosInformación extra para otrosInformación extra para otrosInformación extra para otrosInformación extra para otrosInformación extra para otros", R.drawable.foto)
+        }
+        bottomSheet.show(childFragmentManager, bottomSheet.tag)
     }
 }
