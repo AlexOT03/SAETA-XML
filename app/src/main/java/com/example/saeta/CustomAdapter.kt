@@ -18,10 +18,10 @@ class CustomAdapter: RecyclerView.Adapter<CustomAdapter.ViewHolder>(){
         "Detalles 02",
         "Detalles 03",
         "Detalles 04")
-    val images = intArrayOf(R.drawable.foto,
-        R.drawable.foto,
-        R.drawable.foto,
-        R.drawable.foto)
+    val images = intArrayOf(R.drawable.ruta,
+        R.drawable.ruta,
+        R.drawable.ruta,
+        R.drawable.ruta)
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
         val v = LayoutInflater.from(viewGroup.context).inflate(R.layout.card_layout, viewGroup, false)
